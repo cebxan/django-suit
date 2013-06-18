@@ -1,6 +1,6 @@
 from django.conf import settings
 import suit.config
-from nested_inline.admin import NestedModelAdmin
+from nested_inline.admin import NestedModelAdmin, NestedTabularInline
 from django.contrib.admin.views.main import ChangeList
 from django.forms import ModelForm
 from django.contrib import admin
@@ -39,7 +39,7 @@ class SortableChangeList(ChangeList):
         return [self.model_admin.sortable, '-' + self.model._meta.pk.name]
 
 
-class SortableTabularInline(SortableModelAdminBase, admin.TabularInline):
+class SortableTabularInline(SortableModelAdminBase, NestedTabularInline):
     """
     Sortable tabular inline
     """
