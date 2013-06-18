@@ -1,6 +1,6 @@
 from django.conf import settings
 import suit.config
-from django.contrib.admin import ModelAdmin
+from nested_inline.admin import NestedModelAdmin
 from django.contrib.admin.views.main import ChangeList
 from django.forms import ModelForm
 from django.contrib import admin
@@ -59,7 +59,7 @@ class SortableTabularInline(SortableModelAdminBase, admin.TabularInline):
             db_field, **kwargs)
 
 
-class SortableModelAdmin(SortableModelAdminBase, ModelAdmin):
+class SortableModelAdmin(SortableModelAdminBase, NestedModelAdmin):
     """
     Sortable tabular inline
     """
